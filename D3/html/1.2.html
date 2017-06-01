@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <p>Hello world</p>
+    <p>身体不舒服，想睡觉!</p>
+<p>难受</p>
+</body>
+<script>
+   var d1 = d3.select('body')
+        .selectAll('p')
+        .text('stoomach hard')
+    d1.style('color','red')
+        .style('font-size','24px');
+   var str = 'China'
+   d1.datum(str)
+    d1.text(function (d,i) {
+        return '第'+i+'个元素绑定的是'+d
+    })
+
+    var dataset = ["肚子痛","好难受",'啊']
+    d1.data(dataset)
+        .text(function (d,i) {
+            return d
+        })
+   var d2 = d3.select('body')
+    d2.append('p')
+        .text('我屮艸芔茻，痛哭了')
+    d1.insert('p')
+        .text('插入头部的')
+        .remove()
+   var width = 300;  //画布的宽度
+   var height = 300;   //画布的高度
+
+   var svg = d3.select("body")     //选择文档中的body元素
+       .append("svg")          //添加一个svg元素
+       .attr("width", width)       //设定宽度
+       .attr("height", height);    //设定高度
+
+   var rectHeight = 25;
+   var dataset = [ 250 , 210 , 170 , 130 , 90 ];  //数据（表示矩形的宽度）
+    svg.selectAll('rect')
+        .data(dataset)
+        .enter()
+        .append('rect')
+        .attr('x',20)
+        .attr('y',function (d,i) {
+            return i*rectHeight;
+        })
+        .attr('width',function (d) {
+            return d
+        })
+        .attr('height', rectHeight - 2)
+        .attr('file','steeblue')
+</script>
+</html>

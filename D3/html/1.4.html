@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>线性和比例尺</title>
+</head>
+<body>
+
+</body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+    var dataset = [1.2, 2.3, 0.9, 1.5, 3.3];
+    var min = d3.min(dataset);
+    var max = d3.max(dataset);
+
+    var linear = d3.scale.linear()
+        .domain([min, max])
+        .range([0, 300]);
+
+    linear(0.9);    //返回 0
+    linear(2.3);    //返回 175
+    linear(3.3);    //返回 300
+    console.log(linear(0.9))
+    console.log(linear(2.3))
+    console.log(linear(3.3))
+</script>
+</html>

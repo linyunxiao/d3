@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现简单的动态效果</title>
+</head>
+<body>
+
+</body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+    var svg = d3.select('body')
+        .append('svg')
+        .style('width',800)
+        .style('height',600)
+    var circle1 = svg.append("circle")
+        .attr("cx", 100)
+        .attr("cy", 100)
+        .attr("r", 45)
+        .style("fill","green");
+    //在1秒（1000毫秒）内将圆心坐标由100变为300
+    circle1.transition()
+        .duration(1000)
+        .attr("cx", 300)
+        .style('fill','red')
+        .attr('r',80)
+</script>
+</html>
